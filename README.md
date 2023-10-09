@@ -1,4 +1,4 @@
-# SelectIdentical 4 Blender
+# FIdentical for Blender
 For a project i'm working, i needed to optimize for game engines an enormous industrial CAD mesh with gazillion of bolts, washers etc. I needed to separate all these small objects into a new collection and doing it by hand would have killed also the most patient person in the world. So this script allows to select objects that are identical or similar to the ACTIVE object. It compares the number of vertices and dimensions of each mesh in the scene with that of active object, and selects ONLY the objects that match these criteria.
 
 The script starts by defining a tolerance threshold, epsilon, which is used to determine the acceptable percentage difference for dimensions and volume comparisons.
