@@ -10,10 +10,8 @@ bl_info = {
     "category": "Mesh",
 }
 
-
 # Epsilon is the tolerance threshold for percentage differences
 epsilon = 0.05
-
 
 def find_identical_objects():
     # Get the active object
@@ -73,12 +71,11 @@ class VIEW3D_PT_FindAllIdentical(bpy.types.Panel):
 
         # Display description text
         row = layout.row()
-        row.label(text="© 2023 by Marco Capelli")
+        row.label(text="2023 by Marco Capelli")
 
         # Add button to run the script
         row = layout.row()
         row.operator("script.find", text="FIND IDENTICAL")
-
 
 class SCRIPT_OT_Find(bpy.types.Operator):
     bl_idname = "script.find"
@@ -90,16 +87,13 @@ class SCRIPT_OT_Find(bpy.types.Operator):
 
         return {'FINISHED'}
 
-
 def register():
     bpy.utils.register_class(VIEW3D_PT_FindAllIdentical)
     bpy.utils.register_class(SCRIPT_OT_Find)
 
-
 def unregister():
     bpy.utils.unregister_class(VIEW3D_PT_FindAllIdentical)
     bpy.utils.unregister_class(SCRIPT_OT_Find)
-
 
 if __name__ == "__main__":
     register()
