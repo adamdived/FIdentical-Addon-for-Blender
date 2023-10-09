@@ -10,8 +10,10 @@ bl_info = {
     "category": "Mesh",
 }
 
+
 # Epsilon is the tolerance threshold for percentage differences
 epsilon = 0.05
+
 
 def find_identical_objects():
     # Get the active object
@@ -37,20 +39,20 @@ def find_identical_objects():
         if obj.type == 'MESH':
             # Get the number of vertices of the current object
             obj_verts = len(obj.data.vertices)
-            
+
             # If the number of vertices matches the active object
             if obj_verts == active_verts:
                 # If the dimensions of the current object are exactly the same as the active object
                 if obj.dimensions == active_dimensions:
                     obj.select_set(True)  # Select the object
-                
+
                 # Calculate the volume of the current object's bounding box
                 current_bbox_volume = obj.dimensions[0] * obj.dimensions[1] * obj.dimensions[2]
-                
+
                 # If the percentage difference between the volumes is less than the threshold (epsilon)
                 if abs((current_bbox_volume - active_bbox_volume) / active_bbox_volume) < epsilon:
                     obj.select_set(True)  # Select the object
-                
+
                 # If each individual dimension of the current object differs by a percentage from the active object
                 # within the threshold (epsilon)
                 if all(
@@ -81,6 +83,7 @@ class VIEW3D_PT_FindAllIdentical(bpy.types.Panel):
 class SCRIPT_OT_Find(bpy.types.Operator):
     bl_idname = "script.find"
     bl_label = "Find Identical"
+    bl_description = "Find identical objects based on vertex count, dimensions, and volume"
 
     def execute(self, context):
         find_identical_objects()
