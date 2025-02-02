@@ -56,7 +56,7 @@ def find_identical_objects(epsilon):
         print("No matching objects found.")
 
 class VIEW3D_PT_FindAllIdentical(bpy.types.Panel):
-    bl_label = "Find Identical v0.5"
+    bl_label = "Find Identical v0.9.5"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'Find Identical'
